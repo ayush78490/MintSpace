@@ -18,10 +18,11 @@ export default function ActionButton({ currentCode }: ActionButtonProps) {
   
     try {
       // Ensure the URL matches your backend's API route
-      const response = await axios.post("/api/deploy", { code: currentCode })
+      const response = await axios.post("http://localhost:8080/compile", { code: currentCode, sdk_version: "0.1.0" })
       console.log("Backend response:", response.data)
       setStatusMessage("Contract deployed successfully!")
     } catch (error) {
+      console.log("Sending code is : ",currentCode)
       console.error("Error sending code to backend:", error)
       setStatusMessage("Deployment failed. Please try again.")
     } finally {
