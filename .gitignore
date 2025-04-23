@@ -25,3 +25,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# ignore backend build artifacts
+Backend/target/
+
+# ignore frontend node_modules
+frontend/node_modules/
